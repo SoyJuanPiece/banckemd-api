@@ -64,4 +64,15 @@ function createApp() {
     return app;
 }
 
+
 module.exports = { createApp };
+
+// If server.js is run directly, start the app
+if (require.main === module) {
+    const app = createApp();
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+        console.log(`Server listening on port ${port}`);
+    });
+}
+
